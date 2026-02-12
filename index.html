@@ -1,57 +1,211 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Задание 1 - kubsu</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        h1 { color: #333; }
-        .screenshot { margin: 20px 0; border: 1px solid #ccc; padding: 10px; }
-        img { max-width: 100%; }
-        .caption { font-weight: bold; margin-bottom: 10px; }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 1 — kubsu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(145deg, #f6f9fc 0%, #edf2f7 100%);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+            border-radius: 36px;
+            padding: 30px;
+            box-shadow: 0 20px 40px -12px rgba(0,20,40,0.25);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #0b2b4a;
+            margin-top: 0;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #2a7faa;
+            display: inline-block;
+            letter-spacing: -0.02em;
+        }
+
+        .screenshot-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            justify-content: center;
+        }
+
+        .screenshot-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 8px 18px rgba(0,40,80,0.06), 0 2px 6px rgba(0,0,0,0.02);
+            padding: 20px 20px 26px;
+            transition: transform 0.25s ease, box-shadow 0.35s;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 480px;
+            border: 1px solid #ffffffcc;
+        }
+
+        .screenshot-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 28px 38px -10px rgba(18, 67, 112, 0.2);
+            border-color: #b0d4f0;
+        }
+
+        .caption {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #144a66;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-left: 5px solid #2a9d8f;
+            padding-left: 14px;
+            background: linear-gradient(to right, #f0f7fc, transparent);
+        }
+
+        .caption::before {
+            content: "📁";
+            font-size: 1.2rem;
+        }
+
+        .image-wrapper {
+            background: #f2f6fa;
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px dashed #7ba5bb;
+            transition: background 0.2s;
+        }
+
+        .image-wrapper:hover {
+            background: #e3ecf2;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.02);
+            display: block;
+        }
+
+        .placeholder-note {
+            color: #3a5e6e;
+            font-style: italic;
+            background: #fef9e3;
+            padding: 12px 16px;
+            border-radius: 14px;
+            margin-top: 8px;
+            font-size: 0.9rem;
+            border-left: 4px solid #f4b942;
+        }
+
+        @media (min-width: 900px) {
+            .screenshot-card {
+                width: calc(50% - 14px);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Задание 1 - Работа с сервером kubsu-dev.ru</h1>
-    
-    <div class="screenshot">
-        <div class="caption">1. Результат команды ping для kubsu.ru</div>
-        <img src="image_ping.png" alt="ping command">
-    </div>
-    
-    <div class="screenshot">
-        <div class="caption">2. A-записи для kubsu.ru</div>
-        <img src="image_nls.png" alt="nslookup A kubsu.ru">
-    </div>
-    
-    <div class="screenshot">
-        <div class="caption">3. MX-записи для kubsu.ru</div>
-        <img src="image_nls.png" alt="nslookup MX kubsu.ru">
-    </div>
-    
-    <div class="screenshot">
-        <div class="caption">4. A-записи для kubsu-dev.ru</div>
-        <img src="image_nls.png" alt="nslookup A kubsu-dev.ru">
-    </div>
-    
-    <div class="screenshot">
-        <div class="caption">5. MX-записи для kubsu-dev.ru</div>
-        <img src="image_nls.png" alt="nslookup MX kubsu-dev.ru">
-    </div>
-    
-    <div class="screenshot">
-        <div class="caption">6. WHOIS для kubsu.ru</div>
-        <img src="image_whois.png" alt="whois kubsu.ru">
-    </div>
-    
-    <div class="screenshot">
-        <div class="caption">7. WHOIS для kubsu-dev.ru</div>
-        <img src="image_whois.png" alt="whois kubsu-dev.ru">
-    </div>
-    
-    <div class="screenshot">
-        <div class="caption">8. Скриншот SFTP клиента (FileZilla)</div>
-        <img src="image_1.png" alt="FileZilla screenshot">
-    </div>
+    <div class="container">
+        <h1>🖧 Задание 1 — kubsu & kubsu-dev</h1>
+        <div class="screenshot-grid">
+            
+            <div class="screenshot-card">
+                <div class="caption">1. ping kubsu.ru</div>
+                <div class="image-wrapper">
+                    <img src="image_ping 2.PNG" alt="ping kubsu.ru">
+                </div>
+                <div class="placeholder-note">※ скриншот команды ping</div>
+            </div>
+
+            <div class="screenshot-card">
+                <div class="caption">2. A-записи kubsu.ru</div>
+                <div class="image-wrapper">
+                    <img src="image_nls.jpg" alt="nslookup A kubsu.ru">
+                </div>
+                <div class="placeholder-note">※ nslookup, тип A</div>
+            </div>
+
+            <div class="screenshot-card">
+                <div class="caption">3. MX-записи kubsu.ru</div>
+                <div class="image-wrapper">
+                    <img src="image_nls 2.jpg" alt="nslookup MX kubsu.ru">
+                </div>
+                <div class="placeholder-note">※ MX-записи домена</div>
+            </div>
+
+            <div class="screenshot-card">
+                <div class="caption">4. A-записи kubsu-dev.ru</div>
+                <div class="image-wrapper">
+                    <img src="image_nls 3.jpg" alt="nslookup A kubsu-dev.ru">
+                </div>
+                <div class="placeholder-note">※ A-запись для dev</div>
+            </div>
+
+            <div class="screenshot-card">
+                <div class="caption">5. MX-записи kubsu-dev.ru</div>
+                <div class="image-wrapper">
+                    <img src="image_nls 4.jpg" alt="nslookup MX kubsu-dev.ru">
+                </div>
+                <div class="placeholder-note">※ MX для dev-поддомена</div>
+            </div>
+
+            <div class="screenshot-card">
+                <div class="caption">6. WHOIS kubsu.ru</div>
+                <div class="image-wrapper">
+                    <img src="image_whois.jpg" alt="whois kubsu.ru">
+                </div>
+                <div class="placeholder-note">※ информация о регистрации</div>
+            </div>
+
+            <div class="screenshot-card">
+                <div class="caption">7. WHOIS kubsu-dev.ru</div>
+                <div class="image-wrapper">
+                    <img src="image_whois 2.jpg" alt="whois kubsu-dev.ru">
+                </div>
+                <div class="placeholder-note">※ whois для dev-домена</div>
+            </div>
+
+            <div class="screenshot-card">
+                <div class="caption">8. SFTP (FileZilla)</div>
+                <div class="image-wrapper">
+                    <img src="image_1.png" alt="FileZilla screenshot">
+                </div>
+                <div class="placeholder-note">※ подключение к серверу</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
